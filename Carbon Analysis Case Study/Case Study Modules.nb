@@ -1,0 +1,917 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     38849,        909]
+NotebookOptionsPosition[     37196,        870]
+NotebookOutlinePosition[     37598,        886]
+CellTagsIndexPosition[     37555,        883]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Embodied carbon vs. EDP", "Section",
+ CellChangeTimes->{{3.9454403059283533`*^9, 
+  3.945440314821423*^9}},ExpressionUUID->"1d98e7fe-7cb5-4f44-8df5-\
+b1f522aa79c5"],
+
+Cell[CellGroupData[{
+
+Cell["tCDP equations", "Subsection",
+ CellChangeTimes->{{3.945520400317697*^9, 3.945520401183302*^9}, {
+  3.945521305545433*^9, 
+  3.9455213124396276`*^9}},ExpressionUUID->"4d398408-a626-4e3c-9820-\
+8bb1ff784184"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"designParameters", "[", 
+      RowBox[{
+      "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+       "applicationEnergy_", ",", "xAxis_", ",", "yAxis_"}], "]"}], " ", ":=",
+      " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cembodied", " ", "*", "xAxis"}], "+", " ", 
+        RowBox[{"Coperational", " ", "*", " ", "lifetime"}]}], ")"}], " ", 
+      "*", " ", 
+      FractionBox[
+       RowBox[{"(", 
+        RowBox[{"EDP", "/", "yAxis"}], ")"}], "applicationEnergy"]}]}], ";"}],
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"newDesign", "[", 
+      RowBox[{
+      "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+       "applicationEnergy_", ",", "xAxis_", ",", "yAxis_"}], "]"}], " ", ":=",
+      " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cembodied", " ", "*", "xAxis"}], "+", " ", 
+        RowBox[{"Coperational", " ", "*", " ", "lifetime"}]}], ")"}], " ", 
+      "*", " ", 
+      FractionBox[
+       RowBox[{"(", 
+        RowBox[{"EDP", "/", "yAxis"}], ")"}], "applicationEnergy"]}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"originalDesign", "[", 
+      RowBox[{
+      "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+       "applicationEnergy_"}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"Cembodied", " ", "+", " ", 
+        RowBox[{"Coperational", " ", "*", " ", "lifetime"}]}], ")"}], " ", 
+      "*", " ", 
+      FractionBox[
+       RowBox[{"(", "EDP", ")"}], "applicationEnergy"]}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.945520411449828*^9, 3.9455204141934137`*^9}, {
+  3.945520649239209*^9, 3.945520716301303*^9}, {3.945521129256858*^9, 
+  3.94552117899685*^9}, {3.945521267183071*^9, 3.945521278869466*^9}, {
+  3.9455225727294683`*^9, 3.945522630341695*^9}, {3.9455229303772507`*^9, 
+  3.945522934018618*^9}, {3.945522994962427*^9, 3.945523007264648*^9}, {
+  3.945523129273924*^9, 3.945523135468012*^9}, {3.945523185639553*^9, 
+  3.945523192673027*^9}, {3.945523641975522*^9, 3.945523704079544*^9}, {
+  3.945523789854271*^9, 3.945523897223921*^9}, {3.945523990649249*^9, 
+  3.945524005891761*^9}, {3.9455240747130623`*^9, 3.9455241092725077`*^9}, {
+  3.945525544516218*^9, 3.9455256149486217`*^9}, {3.945528101594536*^9, 
+  3.945528145134459*^9}, {3.945528807614397*^9, 3.945528824670583*^9}, {
+  3.945529186754788*^9, 3.945529187762796*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"0797a445-936b-4641-bae3-7ecf1654cf75"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"newUncertHigherDesign", "[", 
+    RowBox[{
+    "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+     "applicationEnergy_", ",", "multiplier_", ",", "xAxis_", ",", "yAxis_"}],
+     "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Cembodied", " ", "*", "xAxis"}], "+", " ", 
+      RowBox[{
+      "Coperational", " ", "*", "multiplier", "*", " ", "lifetime"}]}], ")"}],
+     " ", "*", " ", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"EDP", "/", "yAxis"}], ")"}], "applicationEnergy"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"originalUncertHigerDesign", "[", 
+    RowBox[{
+    "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+     "applicationEnergy_", ",", "multiplier_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Cembodied", " ", "+", " ", 
+      RowBox[{
+      "Coperational", " ", "*", "multiplier", "*", " ", "lifetime"}]}], ")"}],
+     " ", "*", " ", 
+    FractionBox[
+     RowBox[{"(", "EDP", ")"}], "applicationEnergy"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"newUncertLowerDesign", "[", 
+    RowBox[{
+    "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+     "applicationEnergy_", ",", "multiplier_", ",", "xAxis_", ",", "yAxis_"}],
+     "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Cembodied", " ", "*", "xAxis"}], "+", " ", 
+      RowBox[{
+       FractionBox["Coperational", "multiplier"], " ", "*", " ", 
+       "lifetime"}]}], ")"}], " ", "*", " ", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"EDP", "/", "yAxis"}], ")"}], "applicationEnergy"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"originalUncertLowerDesign", "[", 
+    RowBox[{
+    "Cembodied_", ",", "Coperational_", ",", "lifetime_", ",", "EDP_", ",", 
+     "applicationEnergy_", ",", "multiplier_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Cembodied", " ", "+", " ", 
+      RowBox[{
+       FractionBox["Coperational", "multiplier"], " ", "*", " ", 
+       "lifetime"}]}], ")"}], " ", "*", " ", 
+    FractionBox[
+     RowBox[{"(", "EDP", ")"}], "applicationEnergy"]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.945529211524037*^9, 3.9455292612236223`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"45d085bb-b354-45b1-9484-96e44f1ac55f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Contour Plot", "Subsection",
+ CellChangeTimes->{{3.9455213504389963`*^9, 
+  3.9455213528794327`*^9}},ExpressionUUID->"b5d4c2d5-a3dc-432c-b485-\
+a1c99300bcff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", " ", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Show", "[", "  ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"Overall", " ", "contour", " ", 
+      RowBox[{"plot", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"newDesign", "[", 
+          RowBox[{
+          "CembodiedDesign2", ",", "CoperationalDesign2", ",", "lifetime", 
+           ",", "EDPDesign2", ",", "applicationEnergyDesign2", ",", "x", ",", 
+           "y"}], "]"}], "/", 
+         RowBox[{"originalDesign", "[", 
+          RowBox[{
+          "CembodiedDesign1", ",", "CoperationalDesign1", ",", "lifetime", 
+           ",", "EDPDesign1", ",", "applicationEnergyDesign1"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "1", ",", "100"}], "}"}], ",", " ", 
+       RowBox[{"ScalingFunctions", "->", 
+        RowBox[{"{", 
+         RowBox[{"None", ",", "\"\<Log\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotLegends", "->", "Automatic"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"Contours", "->", "10"}]}], "]"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"tCDP", " ", "equivalence", " ", 
+       RowBox[{"isoline", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"newDesign", "[", 
+           RowBox[{
+           "CembodiedDesign2", ",", "CoperationalDesign2", ",", "lifetime", 
+            ",", "EDPDesign2", ",", "applicationEnergyDesign2", ",", "x", ",",
+             "y"}], "]"}], "/", 
+          RowBox[{"originalDesign", "[", 
+           RowBox[{
+           "CembodiedDesign1", ",", "CoperationalDesign1", ",", "lifetime", 
+            ",", "EDPDesign1", ",", "applicationEnergyDesign1"}], "]"}]}], "==",
+          "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "1", ",", "100"}], "}"}], ",", " ", 
+       RowBox[{"ScalingFunctions", "->", 
+        RowBox[{"{", 
+         RowBox[{"None", ",", "\"\<Log\>\""}], "}"}]}], ",", 
+       RowBox[{"ContourStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"White", ",", 
+          RowBox[{"Dashing", "[", "Large", "]"}]}], "}"}]}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}], ",", " ", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Manipulate", " ", 
+     RowBox[{"parameters", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CembodiedDesign2", ",", "1.854694636", ",", 
+       "\"\<Design 2: Embodied Carbon\>\""}], "}"}], ",", " ", "1", ",", 
+     "3"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CoperationalDesign2", ",", ".23", ",", 
+       "\"\<Design 2: Operational Carbon\>\""}], "}"}], ",", " ", ".01", ",", 
+     "1"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"EDPDesign2", ",", 
+       RowBox[{"9.76", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "11"}], ")"}]}], "*", "4.01", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "2"}], ")"}]}]}], ",", "\"\<Design 2: EDP\>\""}], 
+      "}"}], ",", " ", 
+     RowBox[{"3.8", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}], ",", 
+     RowBox[{"4.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"applicationEnergyDesign2", ",", 
+       RowBox[{"9.76", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "11"}], ")"}]}]}], ",", 
+       "\"\<Design 2: Application Energy [kWh]\>\""}], "}"}], ",", " ", 
+     RowBox[{"9.6", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "11"}]}]}], ",", 
+     RowBox[{"1.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "10"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CembodiedDesign1", ",", "3.171518707", ",", 
+       "\"\<Design 1: Embodied Carbon\>\""}], "}"}], ",", " ", "1", ",", 
+     "5"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CoperationalDesign1", ",", ".232", ",", 
+       "\"\<Design 1: Operational Carbon\>\""}], "}"}], ",", " ", ".01", ",", 
+     "1"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"EDPDesign1", ",", 
+       RowBox[{"4.01", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "2"}], ")"}]}], "*", "1.12", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "10"}], ")"}]}]}], ",", "\"\<Design 1: EDP\>\""}], 
+      "}"}], ",", " ", 
+     RowBox[{"3.8", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}], ",", 
+     RowBox[{"4.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"applicationEnergyDesign1", ",", 
+       RowBox[{"1.12", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "10"}], ")"}]}]}], ",", 
+       "\"\<Design 2: Application Energy [kWh]\>\""}], "}"}], ",", " ", 
+     RowBox[{"9.6", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "11"}]}]}], ",", 
+     RowBox[{"1.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "10"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"lifetime", ",", "12", ",", "\"\<Device lifetime\>\""}], "}"}], 
+     ",", " ", "1", ",", " ", "18"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9455241347892437`*^9, 3.945524218018441*^9}, {
+   3.945524256965907*^9, 3.94552439716938*^9}, {3.945524432889118*^9, 
+   3.945524574172279*^9}, {3.945524623089614*^9, 3.945524664270133*^9}, {
+   3.945524763828516*^9, 3.945524800639015*^9}, {3.9455248411941357`*^9, 
+   3.9455252174939003`*^9}, {3.945525256842862*^9, 3.945525512553982*^9}, {
+   3.945525622822381*^9, 3.945525663325488*^9}, 3.945525714398896*^9, {
+   3.945525745896173*^9, 3.9455258509564037`*^9}, 3.945525982508025*^9, {
+   3.945526033602253*^9, 3.945526069630149*^9}, {3.9455261284145813`*^9, 
+   3.9455261292873287`*^9}, {3.94552660391716*^9, 3.9455266147973013`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"bab9b47c-a8fc-440a-b4cc-8505bfebe432"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`applicationEnergyDesign1$$ = 
+    1.1200000000000001`*^-10, $CellContext`applicationEnergyDesign2$$ = 
+    9.759999999999999*^-11, $CellContext`CembodiedDesign1$$ = 
+    3.171518707, $CellContext`CembodiedDesign2$$ = 
+    1.854694636, $CellContext`CoperationalDesign1$$ = 
+    0.232, $CellContext`CoperationalDesign2$$ = 
+    0.23, $CellContext`EDPDesign1$$ = 4.4912*^-12, $CellContext`EDPDesign2$$ =
+     3.913759999999999*^-12, $CellContext`lifetime$$ = 12, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`CembodiedDesign2$$], 1.854694636, 
+       "Design 2: Embodied Carbon"}, 1, 3, ControlType -> Manipulator}, {{
+       Hold[$CellContext`CoperationalDesign2$$], 0.23, 
+       "Design 2: Operational Carbon"}, 0.01, 1, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`EDPDesign2$$], 3.913759999999999*^-12, 
+       "Design 2: EDP"}, 3.8*^-12, 4.5*^-12, ControlType -> Manipulator}, {{
+       Hold[$CellContext`applicationEnergyDesign2$$], 9.759999999999999*^-11, 
+       "Design 2: Application Energy [kWh]"}, 9.599999999999999*^-11, 
+      1.5*^-10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`CembodiedDesign1$$], 3.171518707, 
+       "Design 1: Embodied Carbon"}, 1, 5, ControlType -> Manipulator}, {{
+       Hold[$CellContext`CoperationalDesign1$$], 0.232, 
+       "Design 1: Operational Carbon"}, 0.01, 1, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`EDPDesign1$$], 4.4912*^-12, "Design 1: EDP"}, 
+      3.8*^-12, 4.5*^-12, ControlType -> Manipulator}, {{
+       Hold[$CellContext`applicationEnergyDesign1$$], 
+       1.1200000000000001`*^-10, "Design 2: Application Energy [kWh]"}, 
+      9.599999999999999*^-11, 1.5*^-10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`lifetime$$], 12, "Device lifetime"}, 1, 18, 
+      ControlType -> Manipulator}}, Typeset`size$$ = {
+    420.652264257876, {173.12768579937983`, 178.8596196033759}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`applicationEnergyDesign1$$ = 
+        1.1200000000000001`*^-10, $CellContext`applicationEnergyDesign2$$ = 
+        9.759999999999999*^-11, $CellContext`CembodiedDesign1$$ = 
+        3.171518707, $CellContext`CembodiedDesign2$$ = 
+        1.854694636, $CellContext`CoperationalDesign1$$ = 
+        0.232, $CellContext`CoperationalDesign2$$ = 
+        0.23, $CellContext`EDPDesign1$$ = 
+        4.4912*^-12, $CellContext`EDPDesign2$$ = 
+        3.913759999999999*^-12, $CellContext`lifetime$$ = 12}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> Show[
+        ContourPlot[{$CellContext`newDesign[$CellContext`CembodiedDesign2$$, \
+$CellContext`CoperationalDesign2$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign2$$, $CellContext`applicationEnergyDesign2$$, \
+$CellContext`x, \
+$CellContext`y]/$CellContext`originalDesign[$CellContext`CembodiedDesign1$$, \
+$CellContext`CoperationalDesign1$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign1$$, $CellContext`applicationEnergyDesign1$$]}, \
+{$CellContext`x, 1, 25}, {$CellContext`y, 1, 100}, 
+         ScalingFunctions -> {None, "Log"}, PlotLegends -> Automatic, 
+         PlotRange -> All, Contours -> 10], 
+        ContourPlot[{$CellContext`newDesign[$CellContext`CembodiedDesign2$$, \
+$CellContext`CoperationalDesign2$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign2$$, $CellContext`applicationEnergyDesign2$$, \
+$CellContext`x, \
+$CellContext`y]/$CellContext`originalDesign[$CellContext`CembodiedDesign1$$, \
+$CellContext`CoperationalDesign1$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign1$$, $CellContext`applicationEnergyDesign1$$] == 
+          1}, {$CellContext`x, 1, 25}, {$CellContext`y, 1, 100}, 
+         ScalingFunctions -> {None, "Log"}, ContourStyle -> {White, 
+           Dashing[Large]}]], 
+      "Specifications" :> {{{$CellContext`CembodiedDesign2$$, 1.854694636, 
+          "Design 2: Embodied Carbon"}, 1, 
+         3}, {{$CellContext`CoperationalDesign2$$, 0.23, 
+          "Design 2: Operational Carbon"}, 0.01, 
+         1}, {{$CellContext`EDPDesign2$$, 3.913759999999999*^-12, 
+          "Design 2: EDP"}, 3.8*^-12, 
+         4.5*^-12}, {{$CellContext`applicationEnergyDesign2$$, 
+          9.759999999999999*^-11, "Design 2: Application Energy [kWh]"}, 
+         9.599999999999999*^-11, 
+         1.5*^-10}, {{$CellContext`CembodiedDesign1$$, 3.171518707, 
+          "Design 1: Embodied Carbon"}, 1, 
+         5}, {{$CellContext`CoperationalDesign1$$, 0.232, 
+          "Design 1: Operational Carbon"}, 0.01, 
+         1}, {{$CellContext`EDPDesign1$$, 4.4912*^-12, "Design 1: EDP"}, 
+         3.8*^-12, 
+         4.5*^-12}, {{$CellContext`applicationEnergyDesign1$$, 
+          1.1200000000000001`*^-10, "Design 2: Application Energy [kWh]"}, 
+         9.599999999999999*^-11, 
+         1.5*^-10}, {{$CellContext`lifetime$$, 12, "Device lifetime"}, 1, 
+         18}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      807.2756654371897, {202.33852564312986`, 208.07045944712593`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9455245408349*^9, 3.945524575750245*^9, {3.9455246486150923`*^9, 
+   3.9455246646139603`*^9}, 3.945525855740532*^9, 3.945525941080372*^9, 
+   3.945525983919468*^9, 3.945526071016849*^9, {3.945526132630877*^9, 
+   3.945526144524829*^9}, 3.9455265416174383`*^9, 3.945526617001853*^9, 
+   3.945528618831931*^9, 3.9457232866340046`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"481fb264-3c06-734f-a1ae-25fcc520e51d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Uncertainty analysis", "Section",
+ CellChangeTimes->{{3.94544033549378*^9, 
+  3.945440340021119*^9}},ExpressionUUID->"f6bbde39-ca38-4565-92a4-\
+131701934a1c"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "CI",
+ StyleBox["use",
+  FontSize->18]
+}], "Subsection",
+ CellChangeTimes->{{3.945440374011663*^9, 3.945440377268779*^9}, {
+  3.945440444295059*^9, 
+  3.945440448473133*^9}},ExpressionUUID->"58e8af16-b871-4baf-b0e8-\
+003e85c888dd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", " ", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Show", "[", "  ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"Higher", " ", 
+      RowBox[{"CIuse", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"newUncertHigherDesign", "[", 
+            RowBox[{
+            "CembodiedDesign2", ",", "CoperationalDesign2", ",", "lifetime", 
+             ",", "EDPDesign2", ",", "applicationEnergyDesign2", ",", "mult", 
+             ",", "x", ",", "y"}], "]"}], "/", 
+           RowBox[{"originalUncertHigerDesign", "[", 
+            RowBox[{
+            "CembodiedDesign1", ",", "CoperationalDesign1", ",", "lifetime", 
+             ",", "EDPDesign1", ",", "applicationEnergyDesign1", ",", 
+             "mult"}], "]"}]}], "==", "1"}], ")"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "1", ",", "100"}], "}"}], ",", " ", 
+       RowBox[{"ScalingFunctions", "->", 
+        RowBox[{"{", 
+         RowBox[{"None", ",", "\"\<Log\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotLegends", "->", "Automatic"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"ContourStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Dashing", "[", "Large", "]"}]}], "}"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Lower", " ", 
+       RowBox[{"CIuse", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"newUncertLowerDesign", "[", 
+            RowBox[{
+            "CembodiedDesign2", ",", "CoperationalDesign2", ",", "lifetime", 
+             ",", "EDPDesign2", ",", "applicationEnergyDesign2", ",", "mult", 
+             ",", "x", ",", "y"}], "]"}], "/", 
+           RowBox[{"originalUncertLowerDesign", "[", 
+            RowBox[{
+            "CembodiedDesign1", ",", "CoperationalDesign1", ",", "lifetime", 
+             ",", "EDPDesign1", ",", "mult", ",", 
+             "applicationEnergyDesign1"}], "]"}]}], "==", "1"}], ")"}], "}"}],
+        ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "1", ",", "100"}], "}"}], ",", " ", 
+       RowBox[{"ScalingFunctions", "->", 
+        RowBox[{"{", 
+         RowBox[{"None", ",", "\"\<Log\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotLegends", "->", "Automatic"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"ContourStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Green", ",", 
+          RowBox[{"Dashing", "[", "Large", "]"}]}], "}"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"tCDP", " ", "equivalence", " ", 
+       RowBox[{"isoline", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"newDesign", "[", 
+            RowBox[{
+            "CembodiedDesign2", ",", "CoperationalDesign2", ",", "lifetime", 
+             ",", "EDPDesign2", ",", "applicationEnergyDesign2", ",", "x", 
+             ",", "y"}], "]"}], "/", 
+           RowBox[{"originalDesign", "[", 
+            RowBox[{
+            "CembodiedDesign1", ",", "CoperationalDesign1", ",", "lifetime", 
+             ",", "EDPDesign1", ",", "applicationEnergyDesign1"}], "]"}]}], "==",
+           "1"}], ")"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "1", ",", "100"}], "}"}], ",", " ", 
+       RowBox[{"ScalingFunctions", "->", 
+        RowBox[{"{", 
+         RowBox[{"None", ",", "\"\<Log\>\""}], "}"}]}]}], "]"}]}], "]"}], ",",
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Manipulate", " ", 
+     RowBox[{"parameters", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CembodiedDesign2", ",", "1.854694636", ",", 
+       "\"\<Design 2: Embodied Carbon\>\""}], "}"}], ",", " ", "1", ",", 
+     "3"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"CoperationalDesign2", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0.2002752", "->", "\"\<US\>\""}], ",", " ", 
+       RowBox[{"0.4321728", "->", "\"\<Coal\>\""}], ",", " ", 
+       RowBox[{"0.0252979", "->", "\"\<Solar\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"EDPDesign2", ",", 
+       RowBox[{"9.76", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "11"}], ")"}]}], "*", "4.01", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "2"}], ")"}]}]}], ",", "\"\<Design 2: EDP\>\""}], 
+      "}"}], ",", " ", 
+     RowBox[{"3.8", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}], ",", 
+     RowBox[{"4.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"applicationEnergyDesign2", ",", 
+       RowBox[{"9.76", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "11"}], ")"}]}]}], ",", 
+       "\"\<Design 2: Application Energy [kWh]\>\""}], "}"}], ",", " ", 
+     RowBox[{"9.6", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "11"}]}]}], ",", 
+     RowBox[{"1.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "10"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "CembodiedDesign1", ",", "3.171518707", ",", 
+       "\"\<Design 1: Embodied Carbon\>\""}], "}"}], ",", " ", "1", ",", 
+     "5"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"CoperationalDesign1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0.2298240", "->", "\"\<US\>\""}], ",", " ", 
+       RowBox[{"0.4959360", "->", "\"\<Coal\>\""}], ",", " ", 
+       RowBox[{"0.0290304", "->", "\"\<Solar\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"EDPDesign1", ",", 
+       RowBox[{"4.01", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "2"}], ")"}]}], "*", "1.12", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "10"}], ")"}]}]}], ",", "\"\<Design 1: EDP\>\""}], 
+      "}"}], ",", " ", 
+     RowBox[{"3.8", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}], ",", 
+     RowBox[{"4.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "12"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"applicationEnergyDesign1", ",", 
+       RowBox[{"1.12", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "10"}], ")"}]}]}], ",", 
+       "\"\<Design 2: Application Energy [kWh]\>\""}], "}"}], ",", " ", 
+     RowBox[{"9.6", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "11"}]}]}], ",", 
+     RowBox[{"1.5", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "10"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"lifetime", ",", "12", ",", "\"\<Device lifetime\>\""}], "}"}], 
+     ",", " ", "1", ",", " ", "18"}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"mult", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "->", "\"\<1x\>\""}], ",", " ", 
+       RowBox[{"2", "->", "\"\<2x\>\""}], ",", " ", 
+       RowBox[{"3", "->", "\"\<3x\>\""}]}], "}"}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.945527781095516*^9, 3.94552788435215*^9}, {
+  3.945527978876741*^9, 3.945528023620481*^9}, {3.945528155225362*^9, 
+  3.94552820767255*^9}, {3.94552873905299*^9, 3.9455287507424793`*^9}, {
+  3.945529293016663*^9, 3.945529307448264*^9}, {3.945529350827415*^9, 
+  3.945529353460106*^9}, {3.945529385682624*^9, 3.9455294314631767`*^9}, {
+  3.945529469438579*^9, 3.945529513018207*^9}, {3.945529544127059*^9, 
+  3.945529545855501*^9}, {3.945529600384655*^9, 3.945529623148315*^9}, {
+  3.945529723050044*^9, 3.9455297902876663`*^9}, {3.94552983404062*^9, 
+  3.945529872951921*^9}, {3.9455299108274384`*^9, 3.9455300007361917`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"d49aabb1-2c57-49c4-a71e-0691bc989872"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`applicationEnergyDesign1$$ = 
+    1.1200000000000001`*^-10, $CellContext`applicationEnergyDesign2$$ = 
+    9.759999999999999*^-11, $CellContext`CembodiedDesign1$$ = 
+    3.171518707, $CellContext`CembodiedDesign2$$ = 
+    1.854694636, $CellContext`CoperationalDesign1$$ = 
+    0.229824, $CellContext`CoperationalDesign2$$ = 
+    0.2002752, $CellContext`EDPDesign1$$ = 
+    4.4912*^-12, $CellContext`EDPDesign2$$ = 
+    3.913759999999999*^-12, $CellContext`lifetime$$ = 
+    12, $CellContext`mult$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`CembodiedDesign2$$], 1.854694636, 
+       "Design 2: Embodied Carbon"}, 1, 3, ControlType -> Manipulator}, {
+      Hold[$CellContext`CoperationalDesign2$$], {
+      0.2002752 -> "US", 0.4321728 -> "Coal", 0.0252979 -> "Solar"}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`EDPDesign2$$], 3.913759999999999*^-12, 
+       "Design 2: EDP"}, 3.8*^-12, 4.5*^-12, ControlType -> Manipulator}, {{
+       Hold[$CellContext`applicationEnergyDesign2$$], 9.759999999999999*^-11, 
+       "Design 2: Application Energy [kWh]"}, 9.599999999999999*^-11, 
+      1.5*^-10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`CembodiedDesign1$$], 3.171518707, 
+       "Design 1: Embodied Carbon"}, 1, 5, ControlType -> Manipulator}, {
+      Hold[$CellContext`CoperationalDesign1$$], {
+      0.229824 -> "US", 0.495936 -> "Coal", 0.0290304 -> "Solar"}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`EDPDesign1$$], 4.4912*^-12, "Design 1: EDP"}, 
+      3.8*^-12, 4.5*^-12, ControlType -> Manipulator}, {{
+       Hold[$CellContext`applicationEnergyDesign1$$], 
+       1.1200000000000001`*^-10, "Design 2: Application Energy [kWh]"}, 
+      9.599999999999999*^-11, 1.5*^-10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`lifetime$$], 12, "Device lifetime"}, 1, 18, 
+      ControlType -> Manipulator}, {
+      Hold[$CellContext`mult$$], {1 -> "1x", 2 -> "2x", 3 -> "3x"}, 
+      ControlType -> SetterBar}}, Typeset`size$$ = {
+    360., {175.90844739892054`, 181.64038120291661`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`applicationEnergyDesign1$$ = 
+        1.1200000000000001`*^-10, $CellContext`applicationEnergyDesign2$$ = 
+        9.759999999999999*^-11, $CellContext`CembodiedDesign1$$ = 
+        3.171518707, $CellContext`CembodiedDesign2$$ = 
+        1.854694636, $CellContext`CoperationalDesign1$$ = 
+        0.229824, $CellContext`CoperationalDesign2$$ = 
+        0.2002752, $CellContext`EDPDesign1$$ = 
+        4.4912*^-12, $CellContext`EDPDesign2$$ = 
+        3.913759999999999*^-12, $CellContext`lifetime$$ = 
+        12, $CellContext`mult$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> Show[
+        ContourPlot[{$CellContext`newUncertHigherDesign[$CellContext`\
+CembodiedDesign2$$, $CellContext`CoperationalDesign2$$, \
+$CellContext`lifetime$$, $CellContext`EDPDesign2$$, \
+$CellContext`applicationEnergyDesign2$$, $CellContext`mult$$, $CellContext`x, \
+$CellContext`y]/$CellContext`originalUncertHigerDesign[$CellContext`\
+CembodiedDesign1$$, $CellContext`CoperationalDesign1$$, \
+$CellContext`lifetime$$, $CellContext`EDPDesign1$$, \
+$CellContext`applicationEnergyDesign1$$, $CellContext`mult$$] == 
+          1}, {$CellContext`x, 1, 25}, {$CellContext`y, 1, 100}, 
+         ScalingFunctions -> {None, "Log"}, PlotLegends -> Automatic, 
+         PlotRange -> All, ContourStyle -> {Red, 
+           Dashing[Large]}], 
+        ContourPlot[{$CellContext`newUncertLowerDesign[$CellContext`\
+CembodiedDesign2$$, $CellContext`CoperationalDesign2$$, \
+$CellContext`lifetime$$, $CellContext`EDPDesign2$$, \
+$CellContext`applicationEnergyDesign2$$, $CellContext`mult$$, $CellContext`x, \
+$CellContext`y]/$CellContext`originalUncertLowerDesign[$CellContext`\
+CembodiedDesign1$$, $CellContext`CoperationalDesign1$$, \
+$CellContext`lifetime$$, $CellContext`EDPDesign1$$, $CellContext`mult$$, \
+$CellContext`applicationEnergyDesign1$$] == 1}, {$CellContext`x, 1, 
+          25}, {$CellContext`y, 1, 100}, ScalingFunctions -> {None, "Log"}, 
+         PlotLegends -> Automatic, PlotRange -> All, ContourStyle -> {Green, 
+           Dashing[Large]}], 
+        ContourPlot[{$CellContext`newDesign[$CellContext`CembodiedDesign2$$, \
+$CellContext`CoperationalDesign2$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign2$$, $CellContext`applicationEnergyDesign2$$, \
+$CellContext`x, \
+$CellContext`y]/$CellContext`originalDesign[$CellContext`CembodiedDesign1$$, \
+$CellContext`CoperationalDesign1$$, $CellContext`lifetime$$, \
+$CellContext`EDPDesign1$$, $CellContext`applicationEnergyDesign1$$] == 
+          1}, {$CellContext`x, 1, 25}, {$CellContext`y, 1, 100}, 
+         ScalingFunctions -> {None, "Log"}]], 
+      "Specifications" :> {{{$CellContext`CembodiedDesign2$$, 1.854694636, 
+          "Design 2: Embodied Carbon"}, 1, 
+         3}, {$CellContext`CoperationalDesign2$$, {
+         0.2002752 -> "US", 0.4321728 -> "Coal", 0.0252979 -> 
+          "Solar"}}, {{$CellContext`EDPDesign2$$, 3.913759999999999*^-12, 
+          "Design 2: EDP"}, 3.8*^-12, 
+         4.5*^-12}, {{$CellContext`applicationEnergyDesign2$$, 
+          9.759999999999999*^-11, "Design 2: Application Energy [kWh]"}, 
+         9.599999999999999*^-11, 
+         1.5*^-10}, {{$CellContext`CembodiedDesign1$$, 3.171518707, 
+          "Design 1: Embodied Carbon"}, 1, 
+         5}, {$CellContext`CoperationalDesign1$$, {
+         0.229824 -> "US", 0.495936 -> "Coal", 0.0290304 -> 
+          "Solar"}}, {{$CellContext`EDPDesign1$$, 4.4912*^-12, 
+          "Design 1: EDP"}, 3.8*^-12, 
+         4.5*^-12}, {{$CellContext`applicationEnergyDesign1$$, 
+          1.1200000000000001`*^-10, "Design 2: Application Energy [kWh]"}, 
+         9.599999999999999*^-11, 
+         1.5*^-10}, {{$CellContext`lifetime$$, 12, "Device lifetime"}, 1, 
+         18}, {$CellContext`mult$$, {1 -> "1x", 2 -> "2x", 3 -> "3x"}}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      746.6234011793136, {205.11928724267057`, 210.85122104666664`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.945529521327443*^9, 3.9455296921278553`*^9, 
+  3.945529750857972*^9, 3.9455297916299*^9, 3.945529849279848*^9, 
+  3.945529924773192*^9, 3.945530018542514*^9, 3.945723286934822*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"44b2cc11-5597-5d43-9ec8-fdf6e1b0c5bf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "Section",
+ CellChangeTimes->{{3.9454404627020903`*^9, 3.945440463100666*^9}, {
+  3.9457232984835014`*^9, 
+  3.945723301398361*^9}},ExpressionUUID->"ac5a7554-caf7-4cb6-9e06-\
+21633183866e"]
+},
+WindowSize->{1440, 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0a8d4c18-3ea5-4d03-a812-be1cea0cc852"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 170, 3, 66, "Section",ExpressionUUID->"1d98e7fe-7cb5-4f44-8df5-b1f522aa79c5"],
+Cell[CellGroupData[{
+Cell[775, 29, 213, 4, 53, "Subsection",ExpressionUUID->"4d398408-a626-4e3c-9820-8bb1ff784184"],
+Cell[991, 35, 2663, 64, 116, "Input",ExpressionUUID->"0797a445-936b-4641-bae3-7ecf1654cf75"],
+Cell[3657, 101, 2457, 67, 192, "Input",ExpressionUUID->"45d085bb-b354-45b1-9484-96e44f1ac55f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6151, 173, 164, 3, 53, "Subsection",ExpressionUUID->"b5d4c2d5-a3dc-432c-b485-a1c99300bcff"],
+Cell[CellGroupData[{
+Cell[6340, 180, 7058, 180, 656, "Input",ExpressionUUID->"bab9b47c-a8fc-440a-b4cc-8505bfebe432"],
+Cell[13401, 362, 6549, 115, 427, "Output",ExpressionUUID->"481fb264-3c06-734f-a1ae-25fcc520e51d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20011, 484, 164, 3, 66, "Section",ExpressionUUID->"f6bbde39-ca38-4565-92a4-131701934a1c"],
+Cell[CellGroupData[{
+Cell[20200, 491, 248, 8, 53, "Subsection",ExpressionUUID->"58e8af16-b871-4baf-b0e8-003e85c888dd"],
+Cell[CellGroupData[{
+Cell[20473, 503, 9019, 225, 789, "Input",ExpressionUUID->"d49aabb1-2c57-49c4-a71e-0691bc989872"],
+Cell[29495, 730, 7460, 129, 432, "Output",ExpressionUUID->"44b2cc11-5597-5d43-9ec8-fdf6e1b0c5bf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[36994, 864, 198, 4, 66, "Section",ExpressionUUID->"ac5a7554-caf7-4cb6-9e06-21633183866e"]
+}
+]
+*)
+
