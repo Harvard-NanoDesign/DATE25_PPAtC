@@ -6,3 +6,4 @@ Power, performance, area and total carbon footprint of integrated circuits inclu
 - Process energy estimation
 - Process and fabrication energy estimates
 - Total carbon delay product analysis
+- Carbon analysis case study notebook
