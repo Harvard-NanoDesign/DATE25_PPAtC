@@ -12,7 +12,7 @@ This folder contains the IC design log files from which out data was extracted f
 
 We also provide a circuit layout (GDS) using the M3D process which can be rendered in 3D using GDS3 (https://github.com/trilomix/GDS3D).
 
-![GDS3D Layout Cross Section Rendering](https://raw.githubusercontent.com/Harvard-NanoDesign/DATE25_PPAtC/main/IC%20Design/Layouts/cross_section3d.png)
+![GDS3D Layout Cross Section Rendering](https://github.com/user-attachments/assets/ab8140ab-978f-41e9-a535-0ec23534ef94)
 
 To create the above rendering
 - Download GDS3D from https://github.com/trilomix/GDS3D
