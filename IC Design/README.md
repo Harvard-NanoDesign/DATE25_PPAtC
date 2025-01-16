@@ -1,4 +1,4 @@
-#IC Physical Implementation#
+### IC Physical Implementation ###
 
 This folder contains the IC design log files from which out data was extracted from. The summarized results for Carbon Analysis are shown below:
 | **System** | **M0 + Si eDRAM** | **M0 + IGZO/CNT/Si M3D-eDRAM** |
@@ -10,4 +10,12 @@ This folder contains the IC design log files from which out data was extracted f
 | **64 kB memory area footprint** | 0.068 mm² | 0.025 mm² |
 | **total area footprint (memory + M0)** | 0.139 mm²<br>H: 270 μm<br>W: 515 μm | 0.053 mm²<br>H: 159 μm<br>W: 334 μm |
 
-We also provide a circuit layout (GDS) using the M3D process which can be rendered in 3D using GDS3 (https://github.com/trilomix/GDS3D)
+We also provide a circuit layout (GDS) using the M3D process which can be rendered in 3D using GDS3 (https://github.com/trilomix/GDS3D).
+
+![GDS3D Rendering]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg](https://github.com/Harvard-NanoDesign/DATE25_PPAtC/blob/main/IC%20Design/Layouts/cross_section3d.png)?raw=true)
+
+To create the above rendering
+- Download GDS3D from https://github.com/trilomix/GDS3D
+- Navigate to the 'Layouts' folder
+- Run the following command: `vglrun64 GDS3D -p layers.txt -i cross_section.gds`
+- layers.txt is provided with sample colors, this file can be edited as desired
