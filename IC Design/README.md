@@ -10,7 +10,7 @@ This folder contains the IC design log files from which out data was extracted f
 | **64 kB memory area footprint** | 0.068 mm² | 0.025 mm² |
 | **total area footprint (memory + M0)** | 0.139 mm²<br>H: 270 μm<br>W: 515 μm | 0.053 mm²<br>H: 159 μm<br>W: 334 μm |
 
-We also provide a circuit layout (GDS) using the M3D process which can be rendered in 3D using GDS3 (https://github.com/trilomix/GDS3D).
+We also provide a circuit layout (GDS) using the M3D process which can be rendered in 3D using GDS3D (https://github.com/trilomix/GDS3D).
 
 ![GDS3D Layout Cross Section Rendering](https://github.com/user-attachments/assets/ab8140ab-978f-41e9-a535-0ec23534ef94)
 
