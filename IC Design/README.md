@@ -1,6 +1,6 @@
 ### IC Physical Implementation ###
 
-This folder contains the IC design log files from which out data was extracted from. The summarized results for Carbon Analysis are shown below:
+This folder contains the IC design log files from which our data was extracted from. The summarized results for Carbon Analysis are shown below:
 | **System** | **M0 + Si eDRAM** | **M0 + IGZO/CNT/Si M3D-eDRAM** |
 |------------|-------------------|------------------------------|
 | **clock frequency** | 500 MHz | 500 MHz |
