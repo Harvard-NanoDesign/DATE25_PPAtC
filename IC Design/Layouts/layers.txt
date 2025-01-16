@@ -1,0 +1,660 @@
+LayerStart: Substrate
+Layer: 255
+Height: -2000.000000
+Thickness: 2000.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.500000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_Well
+Layer: 1
+Height: -10.000000
+Thickness: 10.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_Fin
+Layer: 2
+Height: 0.000000
+Thickness: 32.000000
+Red: 0.800000
+Green: 0.400000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_Gate
+Layer: 7
+Height: 0.000000
+Thickness: 44.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_GCut
+Layer: 10
+Height: -30.000000
+Thickness: 30.000000
+Red: 0.600000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_Active
+Layer: 11
+Height: -30.000000
+Thickness: 30.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_LIG
+Layer: 16
+Height: 44.000000
+Thickness: 100.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 0.500000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_LISD
+Layer: 17
+Height: 32.000000
+Thickness: 112.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_V0
+Layer: 18
+Height: 144.000000
+Thickness: 56.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M1
+Layer: 19
+Height: 200.000000
+Thickness: 100.000000
+Red: 0.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V1
+Layer: 21
+Height: 300.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 0.500000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M2
+Layer: 20
+Height: 400.000000
+Thickness: 100.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V2
+Layer: 25
+Height: 500.000000
+Thickness: 100.000000
+Red: 0.850000
+Green: 0.900000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M3
+Layer: 30
+Height: 600.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 0.750000
+Blue: 0.950000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V3
+Layer: 35
+Height: 700.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.800000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M4
+Layer: 40
+Height: 800.000000
+Thickness: 100.000000
+Red: 0.750000
+Green: 0.500000
+Blue: 0.250000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V4
+Layer: 45
+Height: 900.000000
+Thickness: 100.000000
+Red: 0.370000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M5
+Layer: 50
+Height: 900.000000
+Thickness: 100.000000
+Red: 0.220000
+Green: 0.750000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V5
+Layer: 55
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.800000
+Green: 0.400000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M6
+Layer: 60
+Height: 900.000000
+Thickness: 0.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V6
+Layer: 65
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M7
+Layer: 70
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.880000
+Green: 0.700000
+Blue: 0.980000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V7
+Layer: 75
+Height: 900.000000
+Thickness: 0.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M8
+Layer: 80
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.150000
+Green: 0.550000
+Blue: 0.420000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V8
+Layer: 85
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.750000
+Green: 0.250000
+Blue: 0.150000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: SI_M9
+Layer: 90
+Height: 900.000000
+Thickness: 0.000000
+Red: 0.370000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: SI_V9
+Layer: 95
+Height: 900.000000
+Thickness: 0.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_DopeCut
+Layer: 1107
+Height: 870.000000
+Thickness: 30.000000
+Red: 0.000000
+Green: 0.330000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Active
+Layer: 1101
+Height: 880.000000
+Thickness: 20.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Gate
+Layer: 1102
+Height: 900.000000
+Thickness: 50.000000
+Red: 0.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_SD
+Layer: 1103
+Height: 900.000000
+Thickness: 50.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_PPass
+Layer: 1106
+Height: 900.000000
+Thickness: 100.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 0
+LayerEnd
+
+LayerStart: CNT1A_Con
+Layer: 1108
+Height: 950.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Met1
+Layer: 1109
+Height: 1050.000000
+Thickness: 100.000000
+Red: 0.667000
+Green: 0.200000
+Blue: 0.467000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Via1
+Layer: 1110
+Height: 1150.000000
+Thickness: 100.000000
+Red: 0.370000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Met2
+Layer: 1111
+Height: 1250.000000
+Thickness: 100.000000
+Red: 0.500000
+Green: 0.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: CNT1A_Via2
+Layer: 1112
+Height: 1350.000000
+Thickness: 100.000000
+Red: 0.500000
+Green: 0.500000
+Blue: 0.500000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_DopeCut
+Layer: 1127
+Height: 1420.000000
+Thickness: 30.000000
+Red: 0.000000
+Green: 0.330000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Active
+Layer: 1121
+Height: 1430.000000
+Thickness: 20.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Gate
+Layer: 1122
+Height: 1450.000000
+Thickness: 50.000000
+Red: 0.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_SD
+Layer: 1123
+Height: 1450.000000
+Thickness: 50.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_PPass
+Layer: 1126
+Height: 1450.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 0
+LayerEnd
+
+LayerStart: CNT1B_Con
+Layer: 1128
+Height: 1500.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Met1
+Layer: 1129
+Height: 1600.000000
+Thickness: 100.000000
+Red: 0.667000
+Green: 0.200000
+Blue: 0.467000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Via1
+Layer: 1130
+Height: 1700.000000
+Thickness: 100.000000
+Red: 0.370000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Met2
+Layer: 1131
+Height: 1800.000000
+Thickness: 100.000000
+Red: 0.500000
+Green: 0.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: CNT1B_Via2
+Layer: 1132
+Height: 1900.000000
+Thickness: 100.000000
+Red: 0.500000
+Green: 0.500000
+Blue: 0.500000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Active
+Layer: 1141
+Height: 1970.000000
+Thickness: 30.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Gate
+Layer: 1142
+Height: 2000.000000
+Thickness: 50.000000
+Red: 1.000000
+Green: 0.500000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_SD
+Layer: 1143
+Height: 2000.000000
+Thickness: 50.000000
+Red: 0.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Con
+Layer: 1148
+Height: 2050.000000
+Thickness: 100.000000
+Red: 0.780000
+Green: 0.780000
+Blue: 0.780000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Met1
+Layer: 1149
+Height: 2150.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Via1
+Layer: 1150
+Height: 2250.000000
+Thickness: 100.000000
+Red: 0.370000
+Green: 0.000000
+Blue: 0.900000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Met2
+Layer: 1151
+Height: 2350.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 0.000000
+Blue: 0.000000
+Filter: 0.000000
+Metal: 1
+Show: 1
+LayerEnd
+
+LayerStart: IGZO1_Via2
+Layer: 1152
+Height: 2450.000000
+Thickness: 100.000000
+Red: 1.000000
+Green: 1.000000
+Blue: 1.000000
+Filter: 0.000000
+Metal: 0
+Show: 1
+LayerEnd
+
