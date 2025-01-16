@@ -18,4 +18,4 @@ To create the above rendering
 - Download GDS3D from https://github.com/trilomix/GDS3D
 - Navigate to the 'Layouts' folder
 - Run the following command: `vglrun64 GDS3D -p layers.txt -i cross_section.gds`
-- layers.txt is provided with sample colors, this file can be edited as desired
+- `layers.txt` is provided with sample colors, this file can be edited as desired
