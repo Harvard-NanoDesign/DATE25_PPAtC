@@ -1,6 +1,6 @@
 ### IC Physical Implementation ###
 
-This folder contains the IC design log files from which our data was extracted from. The summarized results for Carbon Analysis are shown below:
+This folder contains log files from the IC design simulations we performed. We performed logic synthesis & place-and-route (Cadence Genus & Cadence Innovus) over a range of design parameters to generate multiple options for fCLK and energy consumption of our system and sweep VT of the FETs over all options offered in the ASAP7 standard cell library. We perform RTL simulations to obtain cycle-accurate digital waveforms for each net in our computing system. The summarized results for Carbon Analysis are shown below:
 | **System** | **M0 + Si eDRAM** | **M0 + IGZO/CNT/Si M3D-eDRAM** |
 |------------|-------------------|------------------------------|
 | **clock frequency** | 500 MHz | 500 MHz |
