@@ -16,29 +16,31 @@ Total embodied carbon of the Si eDRAM and M3D eDRAM are graphed for a U.S., coal
 | Coal                | 820   |
 | Solar               | 48    |
 
-|                | [kgCO2e/wafer]      | GPA (99% abatement) | MPA         | EPA_f∙CI_fab   |
-|----------------|---------------------|---------------------|-------------|----------------|
-| U.S. grid      | Si eDRAM            | 115.2529351         | 353.4291735 | 385.13608      |
-|                | M3D eDRAM           | 160.1119064         | 353.4291735 | 535.0394933    |
-| Coal           | Si eDRAM            | 115.2529351         | 353.4291735 | 831.08312      |
-|                | M3D eDRAM           | 160.1119064         | 353.4291735 | 1154.558907    |
-| Solar          | Si eDRAM            | 115.2529351         | 353.4291735 | 48.648768      |
-|                | M3D eDRAM           | 160.1119064         | 353.4291735 | 67.583936      |
+| Grid         | Type       | GPA (99% abatement) [kgCO2e/wafer] | MPA [kgCO2e/wafer] | EPA_f∙CI_fab [kgCO2e/wafer] |
+|--------------|------------|------------------------------------|-------------------|-----------------------------|
+| U.S. grid    | Si eDRAM   | 111.4734718                        | 353.4291735       | 372.5064                    |
+|              | M3D eDRAM  | 171.969296                         | 353.4291735       | 574.6628533                 |
+| Coal         | Si eDRAM   | 111.4734718                        | 353.4291735       | 803.8296                    |
+|              | M3D eDRAM  | 171.969296                         | 353.4291735       | 1240.061947                 |
+| Solar        | Si eDRAM   | 111.4734718                        | 353.4291735       | 47.05344                    |
+|              | M3D eDRAM  | 171.969296                         | 353.4291735       | 72.588992                   |
+| Taiwan grid  | Si eDRAM   | 111.4734718                        | 353.4291735       | 551.89764                   |
+|              | M3D eDRAM  | 171.969296                         | 353.4291735       | 851.4083853                 |
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| Si eDRAM: EPA [kWh/wafer]                         | 723.94                    |
-| Si eDRAM: EPA_f (EPA with 40% facility overhead) [kWh/wafer] | 1013.516       |
-| EPA_f * CI_fab (US) [gCO2eq/wafer]                | 385136.08                 |
-| EPA_f * CI_fab (coal) [gCO2eq/wafer]              | 831083.12                 |
-| EPA_f * CI_fab (solar) [gCO2eq/wafer]             | 48648.768                 |
-| Source:                                           |                           |
+| Si eDRAM                       | Value                   |
+|-------------------------------|-------------------------|
+| EPA [kWh/wafer]               | 700.2                   |
+| EPA_f (EPA with 40% facility overhead) [kWh/wafer] | 980.28                  |
+| EPA_f * CI_fab (US) [gCO2eq/wafer]     | 372506.4                |
+| EPA_f * CI_fab (coal) [gCO2eq/wafer]   | 803829.6                |
+| EPA_f * CI_fab (solar) [gCO2eq/wafer]  | 47053.44               |
+| EPA_f * CI_fab (Taiwan) [gCO2eq/wafer] | 551897.64              |
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| M3D eDRAM: EPA [kWh/wafer]                        | 1005.713333               |
-| M3D eDRAM: EPA with 40% facility overhead (EPA_f) [kWh/wafer] | 1407.998667   |
-| EPA_f * CI_fab (US) [gCO2eq/wafer]                | 535039.4933               |
-| EPA_f * CI_fab (coal) [gCO2eq/wafer]              | 1154558.907               |
-| EPA_f * CI_fab (solar) [gCO2eq/wafer]             | 67583.936                 |
-| Source:                                           |                           |
+| M3D eDRAM                              | Value                   |
+|----------------------------------------|-------------------------|
+| EPA [kWh/wafer]                        | 1080.193333             |
+| EPA with 40% facility overhead (EPA_f) [kWh/wafer] | 1512.270667             |
+| EPA_f * CI_fab (US) [gCO2eq/wafer]     | 574662.8533             |
+| EPA_f * CI_fab (coal) [gCO2eq/wafer]   | 1240061.947             |
+| EPA_f * CI_fab (solar) [gCO2eq/wafer]  | 72588.992               |
+| EPA_f * CI_fab (Taiwan) [gCO2eq/wafer] | 851408.3853             |
