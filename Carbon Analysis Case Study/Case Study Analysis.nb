@@ -1,0 +1,768 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     37785,        760]
+NotebookOptionsPosition[     36051,        720]
+NotebookOutlinePosition[     36449,        736]
+CellTagsIndexPosition[     36406,        733]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Quantifying Trade-Offs in Power, Performance, Area, and Total Carbon in \
+Future Computing Systems\
+\>", "Title",
+ CellChangeTimes->{{3.946816521607041*^9, 
+  3.946816538121657*^9}},ExpressionUUID->"1631b1f9-3c81-4824-9ab2-\
+1d591e6a2c73"],
+
+Cell[CellGroupData[{
+
+Cell["tCDP comparison", "Section",
+ CellChangeTimes->{{3.946817936352331*^9, 
+  3.94681793901642*^9}},ExpressionUUID->"d916ebd2-6723-4807-96ab-\
+f7e9d8fcaed2"],
+
+Cell[CellGroupData[{
+
+Cell["Equations & variables", "Subsection",
+ CellChangeTimes->{{3.946818061084496*^9, 3.946818066700241*^9}, {
+  3.952276174492484*^9, 
+  3.952276177640633*^9}},ExpressionUUID->"0da5992c-531e-48b2-8246-\
+c6220a51a2b4"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"delay", "=", 
+   FractionBox["4.01`", 
+    SuperscriptBox["10", "2"]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"runsPerMonth", "=", 
+   RowBox[{"5.4`", " ", 
+    SuperscriptBox["10", "6"]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9468185370642977`*^9, 3.9468185386519527`*^9}, {
+  3.946818794142508*^9, 3.946818794354485*^9}, {3.9468189321189737`*^9, 
+  3.9468189388973093`*^9}, {3.946819099376906*^9, 3.946819156033763*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"cc2515e3-a78f-49b0-9a3a-a4354c90d156"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"newDesign", "[", 
+    RowBox[{
+    "NCembodied_", ",", "NCIuse_", ",", "Nlifetime_", ",", 
+     "NapplicationEnergy_", ",", "xAxis_", ",", "yAxis_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"NCembodied", " ", "xAxis"}], "+", 
+      RowBox[{
+      "NCIuse", " ", "NapplicationEnergy", " ", "yAxis", " ", "runsPerMonth", 
+       " ", "Nlifetime"}]}], ")"}], " ", "delay"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"originalDesign", "[", 
+    RowBox[{
+    "OCembodied_", ",", "OCIuse_", ",", "Olifetime_", ",", 
+     "OapplicationEnergy_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"OCembodied", "+", 
+      RowBox[{
+      "OCIuse", " ", "OapplicationEnergy", " ", "runsPerMonth", " ", 
+       "Olifetime"}]}], ")"}], " ", "delay"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tCDPmult", "[", 
+    RowBox[{
+    "OCembodied_", ",", "OCIuse_", ",", "Olifetime_", ",", 
+     "OapplicationEnergy_", ",", "NCembodied_", ",", "NCIuse_", ",", 
+     "Nlifetime_", ",", "NapplicationEnergy_", ",", "xAxis_", ",", "yAxis_"}],
+     "]"}], ":=", 
+   FractionBox[
+    RowBox[{"originalDesign", "[", 
+     RowBox[{
+     "OCembodied", ",", "OCIuse", ",", "Olifetime", ",", 
+      "OapplicationEnergy"}], "]"}], 
+    RowBox[{"newDesign", "[", 
+     RowBox[{
+     "NCembodied", ",", "NCIuse", ",", "Nlifetime", ",", "NapplicationEnergy",
+       ",", "xAxis", ",", "yAxis"}], "]"}]]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.946818141124374*^9, 3.946818262802281*^9}, 
+   3.94681879903168*^9, {3.9468188923897467`*^9, 3.946818913129262*^9}, {
+   3.946818991000452*^9, 3.9468190843560543`*^9}, {3.9468191713416233`*^9, 
+   3.946819288205505*^9}, {3.946821714714642*^9, 3.94682173496101*^9}, {
+   3.946821838248292*^9, 3.946821937377687*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"42b297a5-520c-4c40-ad4a-6021d9fe9da1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Graph", "Subsection",
+ CellChangeTimes->{{3.946818074749555*^9, 3.9468180754745913`*^9}, 
+   3.94682320107297*^9},ExpressionUUID->"7af11997-3f8e-4e30-b3a8-\
+58a2a5cc69a1"],
+
+Cell[TextData[{
+ "The below graph plots ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"tCDP", ",", " ", "Si"}], 
+    RowBox[{"tCDP", ",", " ", "M3D"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "64784b9d-7af3-4b1a-8762-bfbde27bd9b7"],
+ " as the embodied carbon (x-axis) and operational energy (y-axis) of the M3D \
+design are varied. Users can set the parameters using the sliders and buttons \
+at the left, changing embodied carbon per die, application energy, carbon \
+intensity of use, and device lifetime for both the Si and M3D designs. The \
+graph dynamically updates to reflect these changes. The black dashed line \
+plots the tCDP isoline where ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"tCDP", ",", " ", "Si"}], 
+    RowBox[{"tCDP", ",", " ", "M3D"}]], TraditionalForm]],ExpressionUUID->
+  "f0f5c30d-34e9-4fa2-966d-002d9c5348b2"],
+ "=1."
+}], "Text",
+ CellChangeTimes->{{3.952276592782907*^9, 3.95227659552387*^9}, 
+   3.952327683267193*^9, {3.95232773090457*^9, 
+   3.952327893360631*^9}},ExpressionUUID->"2746c075-5f38-432f-829c-\
+b9951ae6503e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  DynamicModuleBox[{Typeset`open = False}, 
+   TemplateBox[{"Expression", 
+     RowBox[{"DynamicModule", "[", 
+       DynamicBox[
+        FEPrivate`FrontEndResource["FEBitmaps", "IconizeEllipsis"]], "]"}], 
+     GridBox[{{
+        RowBox[{
+          TagBox["\"Byte count: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+          TagBox["7800", "IconizedItem"]}]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+      "Column", 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+     Dynamic[Typeset`open]},
+    "IconizedObject"]],
+  DynamicModule[{$CellContext`embCO = 3.110566732, $CellContext`CIuseO = 
+    380, $CellContext`LTO = 24, $CellContext`appEngO = 
+    1.08/10^10, $CellContext`embCN = 3.629140116, $CellContext`CIuseN = 
+    380, $CellContext`LTN = 24, $CellContext`appEngN = 9.42/10^11}, 
+   Manipulate[
+    Show[
+     ContourPlot[
+      $CellContext`tCDPmult[$CellContext`OCembodied, $CellContext`OCIuse, \
+$CellContext`Olifetime, $CellContext`OapplicationEnergy, \
+$CellContext`NCembodied, $CellContext`NCIuse, $CellContext`Nlifetime, \
+$CellContext`NapplicationEnergy, $CellContext`x, $CellContext`y], \
+{$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+      ScalingFunctions -> {"Log", "Log"}, PlotLegends -> Automatic, PlotRange -> 
+      All, Contours -> {0.125, 0.25, 0.5, 1, 2, 4, 8, 16}, 
+      ContourShading -> {
+        RGBColor[0.163302, 0.119982, 0.79353], 
+        RGBColor[0.31155774999999997`, 0.3995505, 0.90987375], 
+        RGBColor[0.531316, 0.68591325, 0.94755625], 
+        RGBColor[0.734204375, 0.8612695, 0.921096375], 
+        RGBColor[1., 0.87, 0.88], 
+        RGBColor[0.87, 0.45, 0.5137271333333333], 
+        RGBColor[0.7282406250000001, 0.318833875, 0.31465225], 
+        RGBColor[0.534081, 0.0853132, 0.16669]}], 
+     ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied, \
+$CellContext`OCIuse, $CellContext`Olifetime, $CellContext`OapplicationEnergy, \
+$CellContext`NCembodied, $CellContext`NCIuse, $CellContext`Nlifetime, \
+$CellContext`NapplicationEnergy, $CellContext`x, $CellContext`y] == 
+      1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+      ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {Black, 
+        Dashing[Large], 
+        AbsoluteThickness[
+        6]}]], {{$CellContext`OCembodied, $CellContext`embCO, 
+      "Original Design: Embodied Carbon/die"}, 1, 
+     5}, {{$CellContext`OapplicationEnergy, $CellContext`appEngO, 
+      "Original Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`OCIuse, $CellContext`CIuseO, 
+      "Original Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Olifetime, 24, 
+      "Original Design: Device lifetime"}, 1, 
+     30}, {{$CellContext`NCembodied, $CellContext`embCN, 
+      "New Design: Embodied Carbon/die"}, 1, 
+     5}, {{$CellContext`NapplicationEnergy, $CellContext`appEngN, 
+      "New Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`NCIuse, $CellContext`CIuseN, 
+      "New Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Nlifetime, 24, 
+      "New Design: Device lifetime"}, 1, 30}]],
+  SelectWithContents->True,
+  Selectable->False]], "Input",
+ CellChangeTimes->{{3.946819795494363*^9, 3.946819821183177*^9}, {
+   3.946819863638958*^9, 3.946819865728451*^9}, {3.946819897000607*^9, 
+   3.946819905608077*^9}, {3.946819970679081*^9, 3.946819985994567*^9}, {
+   3.946820017332418*^9, 3.9468200205406237`*^9}, {3.946820111343493*^9, 
+   3.9468201334755363`*^9}, {3.946820214120079*^9, 3.946820294693406*^9}, {
+   3.946820566812635*^9, 3.946820575614915*^9}, 3.946820611141947*^9, {
+   3.946820661040657*^9, 3.946820731970562*^9}, {3.946820778979403*^9, 
+   3.9468207849954453`*^9}, {3.946820907929879*^9, 3.946820979727643*^9}, {
+   3.94682102237049*^9, 3.9468210857365217`*^9}, {3.946821201589596*^9, 
+   3.9468213595941763`*^9}, {3.946821431971149*^9, 3.946821458718224*^9}, {
+   3.9468215152266817`*^9, 3.946821538305346*^9}, {3.9468224065970097`*^9, 
+   3.946822494730579*^9}, {3.946822842070056*^9, 3.946822863155087*^9}, 
+   3.946822957065516*^9, {3.946823016418491*^9, 3.946823054570696*^9}, {
+   3.946823088038741*^9, 3.946823139849763*^9}, 3.9468236671663322`*^9, {
+   3.946823787290245*^9, 3.9468238561545887`*^9}, {3.947869274775113*^9, 
+   3.947869296523061*^9}, {3.9478701938692503`*^9, 3.947870203548483*^9}, 
+   3.952276250073443*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"8eebb5da-b856-42c0-aab1-040ca5eafd92"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`embCO$$ = 3.110566732, $CellContext`CIuseO$$ =
+   380, $CellContext`LTO$$ = 24, $CellContext`appEngO$$ = 
+  1.0800000000000001`*^-10, $CellContext`embCN$$ = 
+  3.629140116, $CellContext`CIuseN$$ = 380, $CellContext`LTN$$ = 
+  24, $CellContext`appEngN$$ = 9.42*^-11}, 
+  TagBox[
+   StyleBox[
+    DynamicModuleBox[{$CellContext`NapplicationEnergy$$ = 
+     9.42*^-11, $CellContext`NCembodied$$ = 
+     3.629140116, $CellContext`NCIuse$$ = 380, $CellContext`Nlifetime$$ = 
+     24, $CellContext`OapplicationEnergy$$ = 
+     1.0800000000000001`*^-10, $CellContext`OCembodied$$ = 
+     3.110566732, $CellContext`OCIuse$$ = 380, $CellContext`Olifetime$$ = 24, 
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+        Hold[$CellContext`OCembodied$$], 3.110566732, 
+        "Original Design: Embodied Carbon/die"}, 1, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`OapplicationEnergy$$], 1.0800000000000001`*^-10, 
+        "Original Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`OCIuse$$], 380, "Original Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Olifetime$$], 24, 
+        "Original Design: Device lifetime"}, 1, 30, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NCembodied$$], 3.629140116, 
+        "New Design: Embodied Carbon/die"}, 1, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NapplicationEnergy$$], 9.42*^-11, 
+        "New Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`NCIuse$$], 380, "New Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Nlifetime$$], 24, "New Design: Device lifetime"}, 1,
+        30, ControlType -> Manipulator}}, Typeset`size$$ = {
+     426.21378871527776`, {175.769287109375, 181.501220703125}}, 
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+     Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+     DynamicBox[Manipulate`ManipulateBoxes[
+      1, StandardForm, 
+       "Variables" :> {$CellContext`NapplicationEnergy$$ = 
+         9.42*^-11, $CellContext`NCembodied$$ = 
+         3.629140116, $CellContext`NCIuse$$ = 380, $CellContext`Nlifetime$$ = 
+         24, $CellContext`OapplicationEnergy$$ = 
+         1.0800000000000001`*^-10, $CellContext`OCembodied$$ = 
+         3.110566732, $CellContext`OCIuse$$ = 380, $CellContext`Olifetime$$ = 
+         24}, "ControllerVariables" :> {}, 
+       "OtherVariables" :> {
+        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+         Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+         Typeset`initDone$$, Typeset`skipInitDone$$, 
+         Typeset`keyframeActionsQ$$, Typeset`keyframeList$$}, "Body" :> Show[
+         ContourPlot[
+          $CellContext`tCDPmult[$CellContext`OCembodied$$, \
+$CellContext`OCIuse$$, $CellContext`Olifetime$$, \
+$CellContext`OapplicationEnergy$$, $CellContext`NCembodied$$, \
+$CellContext`NCIuse$$, $CellContext`Nlifetime$$, \
+$CellContext`NapplicationEnergy$$, $CellContext`x, $CellContext`y], \
+{$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+          ScalingFunctions -> {"Log", "Log"}, PlotLegends -> Automatic, 
+          PlotRange -> All, Contours -> {0.125, 0.25, 0.5, 1, 2, 4, 8, 16}, 
+          ContourShading -> {
+            RGBColor[0.163302, 0.119982, 0.79353], 
+            RGBColor[0.31155774999999997`, 0.3995505, 0.90987375], 
+            RGBColor[0.531316, 0.68591325, 0.94755625], 
+            RGBColor[0.734204375, 0.8612695, 0.921096375], 
+            RGBColor[1., 0.87, 0.88], 
+            RGBColor[0.87, 0.45, 0.5137271333333333], 
+            RGBColor[0.7282406250000001, 0.318833875, 0.31465225], 
+            RGBColor[0.534081, 0.0853132, 0.16669]}], 
+         ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied$$, \
+$CellContext`OCIuse$$, $CellContext`Olifetime$$, \
+$CellContext`OapplicationEnergy$$, $CellContext`NCembodied$$, \
+$CellContext`NCIuse$$, $CellContext`Nlifetime$$, \
+$CellContext`NapplicationEnergy$$, $CellContext`x, $CellContext`y] == 
+          1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+          ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {Black, 
+            Dashing[Large], 
+            AbsoluteThickness[6]}]], 
+       "Specifications" :> {{{$CellContext`OCembodied$$, 3.110566732, 
+           "Original Design: Embodied Carbon/die"}, 1, 
+          5}, {{$CellContext`OapplicationEnergy$$, 1.0800000000000001`*^-10, 
+           "Original Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`OCIuse$$, 380, 
+           "Original Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Olifetime$$, 24, 
+           "Original Design: Device lifetime"}, 1, 
+          30}, {{$CellContext`NCembodied$$, 3.629140116, 
+           "New Design: Embodied Carbon/die"}, 1, 
+          5}, {{$CellContext`NapplicationEnergy$$, 9.42*^-11, 
+           "New Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`NCIuse$$, 380, 
+           "New Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Nlifetime$$, 24, 
+           "New Design: Device lifetime"}, 1, 30}}, "Options" :> {}, 
+       "DefaultOptions" :> {}],
+      ImageSizeCache->{
+       876.6010348090277, {206.53971252441409`, 212.27164611816409`}},
+      SingleEvaluation->True],
+     Deinitialization:>None,
+     DynamicModuleValues:>{},
+     SynchronousInitialization->True,
+     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+     UnsavedVariables:>{Typeset`initDone$$},
+     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+    Deployed->True,
+    StripOnInput->False],
+   Manipulate`InterpretManipulate[1]],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{{3.9468213693389177`*^9, 3.946821459367387*^9}, 
+   3.946821538718483*^9, 3.9468217455694427`*^9, {3.946821941819026*^9, 
+   3.946821951956318*^9}, 3.9468224089130363`*^9, {3.946822863858651*^9, 
+   3.94682288646737*^9}, {3.946823035948184*^9, 3.946823057202265*^9}, 
+   3.9468231409599237`*^9, {3.946823811754796*^9, 3.946823857269088*^9}, {
+   3.946825051584091*^9, 3.9468250594074593`*^9}, 3.946825100432302*^9, {
+   3.946906492200953*^9, 3.94690649791367*^9}, 3.94786922906931*^9, {
+   3.947869282096897*^9, 3.94786930118573*^9}, 3.947870195407341*^9, 
+   3.95002239354309*^9, 3.950618050434613*^9, {3.9522762376544647`*^9, 
+   3.9522762564279613`*^9}},
+ CellLabel->"Out[20]=",ExpressionUUID->"4661ff1e-027d-4dfa-8dc1-54ff340131db"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Uncertainty visualization", "Section",
+ CellChangeTimes->{{3.946817946063264*^9, 
+  3.946817952387314*^9}},ExpressionUUID->"3269157a-8217-4ea6-884c-\
+30293f5184b5"],
+
+Cell[TextData[{
+ "The below graph plots two isolines (",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"tCDP", ",", " ", "Si"}], 
+    RowBox[{"tCDP", ",", " ", "M3D"}]], TraditionalForm]],ExpressionUUID->
+  "bf787c75-c31d-4eb7-aa04-0adcb80e16b6"],
+ "=1) but allows users to vary the operating parameters of each line \
+separately. This allows users to visualize the bounds of design parameters on \
+a future technology to ensure carbon-optimality over a prior design."
+}], "Text",
+ CellChangeTimes->{{3.947325960409402*^9, 3.947326063348361*^9}, {
+  3.952276574276679*^9, 3.952276580006167*^9}, {3.95232790029951*^9, 
+  3.952327958686467*^9}},ExpressionUUID->"8a0c7dcf-60a1-424d-9cad-\
+491a3c6f00fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  DynamicModuleBox[{Typeset`open = False}, 
+   TemplateBox[{"Expression", 
+     RowBox[{"DynamicModule", "[", 
+       DynamicBox[
+        FEPrivate`FrontEndResource["FEBitmaps", "IconizeEllipsis"]], "]"}], 
+     GridBox[{{
+        RowBox[{
+          TagBox["\"Byte count: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+          TagBox["10464", "IconizedItem"]}]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+      "Column", 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+     Dynamic[Typeset`open]},
+    "IconizedObject"]],
+  DynamicModule[{$CellContext`embCO = 3.110566732, $CellContext`CIuseO = 
+    380, $CellContext`LTO = 24, $CellContext`appEngO = 
+    1.08/10^10, $CellContext`embCN = 3.629140116, $CellContext`CIuseN = 
+    380, $CellContext`LTN = 24, $CellContext`appEngN = 9.42/10^11}, 
+   Manipulate[
+    Show[{
+      ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied1, \
+$CellContext`OCIuse1, $CellContext`Olifetime1, \
+$CellContext`OapplicationEnergy1, $CellContext`NCembodied1, \
+$CellContext`NCIuse1, $CellContext`Nlifetime1, \
+$CellContext`NapplicationEnergy1, $CellContext`x, $CellContext`y] == 
+       1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+       ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {Red, 
+         Dashing[Large], 
+         AbsoluteThickness[4]}, PlotRange -> Full], 
+      ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied2, \
+$CellContext`OCIuse2, $CellContext`Olifetime2, \
+$CellContext`OapplicationEnergy2, $CellContext`NCembodied2, \
+$CellContext`NCIuse2, $CellContext`Nlifetime2, \
+$CellContext`NapplicationEnergy2, $CellContext`x, $CellContext`y] == 
+       1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+       ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {
+         Darker[Blue], Dashed}, PlotRange -> 
+       All]}], {{$CellContext`OCembodied1, $CellContext`embCO, 
+      "Case 1, Original Design: Embodied Carbon/die"}, 0.01, 
+     5}, {{$CellContext`OapplicationEnergy1, $CellContext`appEngO, 
+      "Case 1, Original Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`OCIuse1, $CellContext`CIuseO, 
+      "Case 1, Original Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Olifetime1, 24, 
+      "Case 1, Original Design: Device lifetime"}, 1, 
+     30}, {{$CellContext`NCembodied1, $CellContext`embCN, 
+      "Case 1, New Design: Embodied Carbon/die"}, 1, 
+     5}, {{$CellContext`NapplicationEnergy1, $CellContext`appEngN, 
+      "Case 1, New Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`NCIuse1, $CellContext`CIuseN, 
+      "Case 1, New Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Nlifetime1, 24, 
+      "Case 1, New Design: Device lifetime"}, 1, 
+     30}, {{$CellContext`OCembodied2, $CellContext`embCO, 
+      "Case 2, Original Design: Embodied Carbon/die"}, 0.01, 
+     5}, {{$CellContext`OapplicationEnergy2, $CellContext`appEngO, 
+      "Case 2, Original Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`OCIuse2, $CellContext`CIuseO, 
+      "Case 2, Original Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Olifetime2, 24, 
+      "Case 2, Original Design: Device lifetime"}, 1, 
+     30}, {{$CellContext`NCembodied2, $CellContext`embCN, 
+      "Case 2, New Design: Embodied Carbon/die"}, 1, 
+     5}, {{$CellContext`NapplicationEnergy2, $CellContext`appEngN, 
+      "Case 2, New Design: Application Energy [kWh]"}, 9/10^11, 10/
+     10^10}, {{$CellContext`NCIuse2, $CellContext`CIuseN, 
+      "Case 2, New Design: CIuse"}, {
+     380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+      "Taiwan"}}, {{$CellContext`Nlifetime2, 24, 
+      "Case 2, New Design: Device lifetime"}, 1, 30}]],
+  SelectWithContents->True,
+  Selectable->False]], "Input",
+ CellChangeTimes->{{3.9468236821287413`*^9, 3.946823701762878*^9}, {
+   3.9468239438815393`*^9, 3.946824001869671*^9}, {3.946824034184167*^9, 
+   3.946824086490341*^9}, {3.946824122285069*^9, 3.9468241243527403`*^9}, {
+   3.946824229500386*^9, 3.946824236334818*^9}, {3.946824274357895*^9, 
+   3.9468243401647387`*^9}, {3.946824408488391*^9, 3.946824416982139*^9}, {
+   3.946824938924594*^9, 3.946824941531048*^9}, {3.946907170639889*^9, 
+   3.946907262798613*^9}, {3.946907301378933*^9, 3.946907368860976*^9}, {
+   3.9469075057573442`*^9, 3.946907646826816*^9}, {3.946907764186062*^9, 
+   3.9469078324650097`*^9}, {3.947266470419539*^9, 3.947266472463542*^9}, {
+   3.947322792311904*^9, 3.9473228261113663`*^9}, {3.9473241894363613`*^9, 
+   3.9473242213921347`*^9}, {3.9473243060034037`*^9, 3.947324319978306*^9}, 
+   3.947324370931469*^9, {3.947324443472863*^9, 3.947324492909932*^9}, {
+   3.947324555346303*^9, 3.947324562572094*^9}, {3.947324686355524*^9, 
+   3.947324704852441*^9}, {3.947324852273057*^9, 3.94732489513381*^9}, {
+   3.947324946047276*^9, 3.9473249483514347`*^9}, {3.947325003998014*^9, 
+   3.9473250106925898`*^9}, 3.947325281652803*^9, {3.947325387641844*^9, 
+   3.947325400727303*^9}, {3.947327666348859*^9, 3.9473277037857523`*^9}, {
+   3.947327752848939*^9, 3.947327756359189*^9}, {3.947338231251651*^9, 
+   3.9473383096674*^9}, {3.947435737126893*^9, 3.94743574363103*^9}, {
+   3.947435792619536*^9, 3.947435797819319*^9}, {3.947436006692789*^9, 
+   3.947436012582836*^9}, {3.947436070109524*^9, 3.9474360810422487`*^9}, {
+   3.947436154023489*^9, 3.94743620018005*^9}, {3.947592549954731*^9, 
+   3.947592687086903*^9}, {3.9475927344685802`*^9, 3.9475927578692636`*^9}, {
+   3.947592937238367*^9, 3.947592941829835*^9}, {3.947593026983384*^9, 
+   3.947593083735731*^9}, {3.9475931164396963`*^9, 3.947593121241808*^9}, {
+   3.9475933169556713`*^9, 3.947593321869607*^9}, {3.9506181077379313`*^9, 
+   3.950618136328617*^9}, {3.9506181900721292`*^9, 3.950618192661784*^9}, {
+   3.950618225042931*^9, 3.950618236907065*^9}, {3.950618282585574*^9, 
+   3.950618285032077*^9}, {3.9522763552545443`*^9, 3.952276370790751*^9}, {
+   3.952276475964835*^9, 3.9522765374131813`*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"5a16fbd1-85ab-40ce-8203-cef5c7d5f362"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`embCO$$ = 3.110566732, $CellContext`CIuseO$$ =
+   380, $CellContext`LTO$$ = 24, $CellContext`appEngO$$ = 
+  1.0800000000000001`*^-10, $CellContext`embCN$$ = 
+  3.629140116, $CellContext`CIuseN$$ = 380, $CellContext`LTN$$ = 
+  24, $CellContext`appEngN$$ = 9.42*^-11}, 
+  TagBox[
+   StyleBox[
+    DynamicModuleBox[{$CellContext`NapplicationEnergy1$$ = 
+     9.42*^-11, $CellContext`NapplicationEnergy2$$ = 
+     9.42*^-11, $CellContext`NCembodied1$$ = 
+     3.629140116, $CellContext`NCembodied2$$ = 
+     3.629140116, $CellContext`NCIuse1$$ = 380, $CellContext`NCIuse2$$ = 
+     380, $CellContext`Nlifetime1$$ = 24, $CellContext`Nlifetime2$$ = 
+     24, $CellContext`OapplicationEnergy1$$ = 
+     1.0800000000000001`*^-10, $CellContext`OapplicationEnergy2$$ = 
+     1.0800000000000001`*^-10, $CellContext`OCembodied1$$ = 
+     3.110566732, $CellContext`OCembodied2$$ = 
+     3.110566732, $CellContext`OCIuse1$$ = 380, $CellContext`OCIuse2$$ = 
+     380, $CellContext`Olifetime1$$ = 24, $CellContext`Olifetime2$$ = 24, 
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+        Hold[$CellContext`OCembodied1$$], 3.110566732, 
+        "Case 1, Original Design: Embodied Carbon/die"}, 0.01, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`OapplicationEnergy1$$], 1.0800000000000001`*^-10, 
+        "Case 1, Original Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`OCIuse1$$], 380, 
+        "Case 1, Original Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Olifetime1$$], 24, 
+        "Case 1, Original Design: Device lifetime"}, 1, 30, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NCembodied1$$], 3.629140116, 
+        "Case 1, New Design: Embodied Carbon/die"}, 1, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NapplicationEnergy1$$], 9.42*^-11, 
+        "Case 1, New Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`NCIuse1$$], 380, "Case 1, New Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Nlifetime1$$], 24, 
+        "Case 1, New Design: Device lifetime"}, 1, 30, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`OCembodied2$$], 3.110566732, 
+        "Case 2, Original Design: Embodied Carbon/die"}, 0.01, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`OapplicationEnergy2$$], 1.0800000000000001`*^-10, 
+        "Case 2, Original Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`OCIuse2$$], 380, 
+        "Case 2, Original Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Olifetime2$$], 24, 
+        "Case 2, Original Design: Device lifetime"}, 1, 30, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NCembodied2$$], 3.629140116, 
+        "Case 2, New Design: Embodied Carbon/die"}, 1, 5, ControlType -> 
+       Manipulator}, {{
+        Hold[$CellContext`NapplicationEnergy2$$], 9.42*^-11, 
+        "Case 2, New Design: Application Energy [kWh]"}, 
+       Rational[9, 100000000000], 
+       Rational[1, 1000000000], ControlType -> Manipulator}, {{
+        Hold[$CellContext`NCIuse2$$], 380, "Case 2, New Design: CIuse"}, {
+       380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> "Taiwan"}, 
+       ControlType -> SetterBar}, {{
+        Hold[$CellContext`Nlifetime2$$], 24, 
+        "Case 2, New Design: Device lifetime"}, 1, 30, ControlType -> 
+       Manipulator}}, Typeset`size$$ = {
+     360., {175.769287109375, 181.501220703125}}, Typeset`update$$ = 0, 
+     Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+     Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+     DynamicBox[Manipulate`ManipulateBoxes[
+      1, StandardForm, 
+       "Variables" :> {$CellContext`NapplicationEnergy1$$ = 
+         9.42*^-11, $CellContext`NapplicationEnergy2$$ = 
+         9.42*^-11, $CellContext`NCembodied1$$ = 
+         3.629140116, $CellContext`NCembodied2$$ = 
+         3.629140116, $CellContext`NCIuse1$$ = 380, $CellContext`NCIuse2$$ = 
+         380, $CellContext`Nlifetime1$$ = 24, $CellContext`Nlifetime2$$ = 
+         24, $CellContext`OapplicationEnergy1$$ = 
+         1.0800000000000001`*^-10, $CellContext`OapplicationEnergy2$$ = 
+         1.0800000000000001`*^-10, $CellContext`OCembodied1$$ = 
+         3.110566732, $CellContext`OCembodied2$$ = 
+         3.110566732, $CellContext`OCIuse1$$ = 380, $CellContext`OCIuse2$$ = 
+         380, $CellContext`Olifetime1$$ = 24, $CellContext`Olifetime2$$ = 24},
+        "ControllerVariables" :> {}, 
+       "OtherVariables" :> {
+        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+         Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+         Typeset`initDone$$, Typeset`skipInitDone$$, 
+         Typeset`keyframeActionsQ$$, Typeset`keyframeList$$}, "Body" :> 
+       Show[{
+          
+          ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied1$$, \
+$CellContext`OCIuse1$$, $CellContext`Olifetime1$$, \
+$CellContext`OapplicationEnergy1$$, $CellContext`NCembodied1$$, \
+$CellContext`NCIuse1$$, $CellContext`Nlifetime1$$, \
+$CellContext`NapplicationEnergy1$$, $CellContext`x, $CellContext`y] == 
+           1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+           ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {Red, 
+             Dashing[Large], 
+             AbsoluteThickness[4]}, PlotRange -> Full], 
+          
+          ContourPlot[$CellContext`tCDPmult[$CellContext`OCembodied2$$, \
+$CellContext`OCIuse2$$, $CellContext`Olifetime2$$, \
+$CellContext`OapplicationEnergy2$$, $CellContext`NCembodied2$$, \
+$CellContext`NCIuse2$$, $CellContext`Nlifetime2$$, \
+$CellContext`NapplicationEnergy2$$, $CellContext`x, $CellContext`y] == 
+           1, {$CellContext`x, 0.1, 10}, {$CellContext`y, 0.1, 10}, 
+           ScalingFunctions -> {"Log", "Log"}, ContourStyle -> {
+             Darker[Blue], Dashed}, PlotRange -> All]}], 
+       "Specifications" :> {{{$CellContext`OCembodied1$$, 3.110566732, 
+           "Case 1, Original Design: Embodied Carbon/die"}, 0.01, 
+          5}, {{$CellContext`OapplicationEnergy1$$, 1.0800000000000001`*^-10, 
+           "Case 1, Original Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`OCIuse1$$, 380, 
+           "Case 1, Original Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Olifetime1$$, 24, 
+           "Case 1, Original Design: Device lifetime"}, 1, 
+          30}, {{$CellContext`NCembodied1$$, 3.629140116, 
+           "Case 1, New Design: Embodied Carbon/die"}, 1, 
+          5}, {{$CellContext`NapplicationEnergy1$$, 9.42*^-11, 
+           "Case 1, New Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`NCIuse1$$, 380, 
+           "Case 1, New Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Nlifetime1$$, 24, 
+           "Case 1, New Design: Device lifetime"}, 1, 
+          30}, {{$CellContext`OCembodied2$$, 3.110566732, 
+           "Case 2, Original Design: Embodied Carbon/die"}, 0.01, 
+          5}, {{$CellContext`OapplicationEnergy2$$, 1.0800000000000001`*^-10, 
+           "Case 2, Original Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`OCIuse2$$, 380, 
+           "Case 2, Original Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Olifetime2$$, 24, 
+           "Case 2, Original Design: Device lifetime"}, 1, 
+          30}, {{$CellContext`NCembodied2$$, 3.629140116, 
+           "Case 2, New Design: Embodied Carbon/die"}, 1, 
+          5}, {{$CellContext`NapplicationEnergy2$$, 9.42*^-11, 
+           "Case 2, New Design: Application Energy [kWh]"}, 
+          Rational[9, 100000000000], 
+          Rational[
+          1, 1000000000]}, {{$CellContext`NCIuse2$$, 380, 
+           "Case 2, New Design: CIuse"}, {
+          380 -> "US", 820 -> "Coal", 48 -> "Solar", 563 -> 
+           "Taiwan"}}, {{$CellContext`Nlifetime2$$, 24, 
+           "Case 2, New Design: Device lifetime"}, 1, 30}}, "Options" :> {}, 
+       "DefaultOptions" :> {}],
+      ImageSizeCache->{
+       846.14994140625, {254.10367736816414`, 259.83561096191414`}},
+      SingleEvaluation->True],
+     Deinitialization:>None,
+     DynamicModuleValues:>{},
+     SynchronousInitialization->True,
+     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+     UnsavedVariables:>{Typeset`initDone$$},
+     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+    Deployed->True,
+    StripOnInput->False],
+   Manipulate`InterpretManipulate[1]],
+  DynamicModuleValues:>{}]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{{3.946824319903266*^9, 3.946824340775365*^9}, 
+   3.946824417365295*^9, {3.946824891591579*^9, 3.9468248933772297`*^9}, 
+   3.9468249469228983`*^9, 3.946906525178547*^9, {3.946907195171453*^9, 
+   3.946907213500629*^9}, 3.946907371212973*^9, {3.946907651732476*^9, 
+   3.9469076889997*^9}, 3.9469078023235273`*^9, 3.946907833355555*^9, {
+   3.947322793870967*^9, 3.947322826741658*^9}, 3.9473233556562347`*^9, {
+   3.947323525768489*^9, 3.947323531137904*^9}, 3.9473238244812183`*^9, 
+   3.947324108371299*^9, 3.947324151881556*^9, {3.9473241959072037`*^9, 
+   3.947324227950987*^9}, {3.947324307813609*^9, 3.947324322839466*^9}, 
+   3.94732437164657*^9, {3.947324460751801*^9, 3.9473244934151*^9}, 
+   3.947324568160809*^9, {3.9473248388268423`*^9, 3.947324895497323*^9}, 
+   3.947324950501381*^9, 3.9473250112736692`*^9, {3.947325389662323*^9, 
+   3.9473254022248497`*^9}, 3.947327687290493*^9, 3.9473277599863157`*^9, {
+   3.94733823909945*^9, 3.9473382795508327`*^9}, {3.947338503753336*^9, 
+   3.947338506574934*^9}, {3.947435334127096*^9, 3.94743533526928*^9}, {
+   3.947435745768125*^9, 3.947435827450204*^9}, 3.947435894050603*^9, 
+   3.947436013074429*^9, {3.9474360818455048`*^9, 3.947436108884515*^9}, {
+   3.947436167560717*^9, 3.9474361697215223`*^9}, {3.947436200651503*^9, 
+   3.94743620553584*^9}, {3.947592607262093*^9, 3.9475926874027767`*^9}, {
+   3.947592738881328*^9, 3.9475927872539577`*^9}, {3.9475929492764597`*^9, 
+   3.947592967919917*^9}, {3.9475930329534483`*^9, 3.94759305240027*^9}, 
+   3.9475930841277027`*^9, 3.94759312165899*^9, 3.947593322337646*^9, 
+   3.950022394937821*^9, 3.950618051641897*^9, 3.9506181933761253`*^9, {
+   3.950618227413269*^9, 3.950618237335904*^9}, {3.950618285438718*^9, 
+   3.9506182961746397`*^9}, {3.950618452770761*^9, 3.9506184630406837`*^9}, 
+   3.952276371951467*^9, {3.952276521280912*^9, 3.952276537812867*^9}},
+ CellLabel->"Out[24]=",ExpressionUUID->"f3b96f0d-d547-4dcd-80ad-aaa7bceb2b89"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{37, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3cf50eac-9437-403c-9b31-031374d806f4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 249, 6, 157, "Title",ExpressionUUID->"1631b1f9-3c81-4824-9ab2-1d591e6a2c73"],
+Cell[CellGroupData[{
+Cell[850, 32, 159, 3, 66, "Section",ExpressionUUID->"d916ebd2-6723-4807-96ab-f7e9d8fcaed2"],
+Cell[CellGroupData[{
+Cell[1034, 39, 218, 4, 53, "Subsection",ExpressionUUID->"0da5992c-531e-48b2-8246-c6220a51a2b4"],
+Cell[1255, 45, 556, 12, 67, "Input",ExpressionUUID->"cc2515e3-a78f-49b0-9a3a-a4354c90d156"],
+Cell[1814, 59, 1945, 48, 110, "Input",ExpressionUUID->"42b297a5-520c-4c40-ad4a-6021d9fe9da1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3796, 112, 177, 3, 37, "Subsection",ExpressionUUID->"7af11997-3f8e-4e30-b3a8-58a2a5cc69a1"],
+Cell[3976, 117, 1108, 26, 93, "Text",ExpressionUUID->"2746c075-5f38-432f-829c-b9951ae6503e"],
+Cell[CellGroupData[{
+Cell[5109, 147, 4639, 85, 32, "Input",ExpressionUUID->"8eebb5da-b856-42c0-aab1-040ca5eafd92"],
+Cell[9751, 234, 7312, 133, 435, "Output",ExpressionUUID->"4661ff1e-027d-4dfa-8dc1-54ff340131db"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17124, 374, 170, 3, 66, "Section",ExpressionUUID->"3269157a-8217-4ea6-884c-30293f5184b5"],
+Cell[17297, 379, 708, 15, 60, "Text",ExpressionUUID->"8a0c7dcf-60a1-424d-9cad-491a3c6f00fc"],
+Cell[CellGroupData[{
+Cell[18030, 398, 6307, 108, 32, "Input",ExpressionUUID->"5a16fbd1-85ab-40ce-8203-cef5c7d5f362"],
+Cell[24340, 508, 11671, 207, 530, "Output",ExpressionUUID->"f3b96f0d-d547-4dcd-80ad-aaa7bceb2b89"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
